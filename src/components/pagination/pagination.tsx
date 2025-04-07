@@ -1,21 +1,26 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { itemsPerPage } from "@/_util/getCurrentPage";
+import { Post } from "@/_util/newt-client";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
+  data: { items: Post[] };
 }
 
-export function Pagination({ currentPage, totalPages }: PaginationProps) {
+export function Pagination({ data }: PaginationProps) {
+  const searchParams = useSearchParams();
   const router = useRouter();
+
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const totalPages = Math.ceil(data.items.length / itemsPerPage);
 
   const goToPage = (page: number) => {
     router.push(`?page=${page}`);
   };
 
   return (
-    <div className="flex justify-center mt-4 space-x-2">
+    <div className="flex justify-center w-full mt-4 mb-10 space-x-2 order-2 lg:order-3">
       {/* ⬅️ 前へ */}
       <button
         onClick={() => goToPage(currentPage - 1)}
@@ -30,7 +35,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
       </button>
 
       {totalPages > 10 ? (
-        <>
+        <div>
           {currentPage > 3 && <span>...</span>}
           {Array.from({ length: totalPages }, (_, i) => i + 1)
             .filter((page) => Math.abs(page - currentPage) <= 2)
@@ -40,7 +45,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
               </button>
             ))}
           {currentPage < totalPages - 2 && <span>...</span>}
-        </>
+        </div>
       ) : (
         Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
           <button

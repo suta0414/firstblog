@@ -17,7 +17,7 @@ export function ArticleList({
   if (source === "author") {
     title = `${data[0].author.fullName}の記事一覧`;
   }
-  console.log(data);
+
   return (
     <div className="w-full mx-auto lg:w-3/4 bg-yellow-100 bg-opacity-25 pt-4 pb-12 px-4">
       <h2 className="text-2xl font-semibold mb-6 text-center">
@@ -26,20 +26,22 @@ export function ArticleList({
       {/* ✅ 記事リスト */}
       <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
         {data.map((datum) => (
-          <li key={datum._id} className="relative w-full  mx-auto ">
+          <li key={datum._id} className="relative w-11/12 sm:w-full mx-auto">
             <Link
               href={`/post/${datum._id}`}
-              className="flex lg:block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              className="block sm:flex lg:block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
-              {datum.tags.map((tag) => (
-                <div
-                  key={tag._id}
-                  className="absolute top-2 left-2 bg-blue-400 text-white text-xs font-bold px-2 py-1 rounded-lg"
-                >
-                  {tag.name}
-                </div>
-              ))}
-              <div className="w-5/12 lg:w-full">
+              <ul>
+                {datum.tags.map((tag) => (
+                  <li
+                    key={tag._id}
+                    className="absolute top-2 left-2 bg-blue-400 text-white text-xs font-bold px-2 py-1 rounded-lg"
+                  >
+                    {tag.name}
+                  </li>
+                ))}
+              </ul>
+              <div className="w-full md:w-5/12 lg:w-full">
                 <Image
                   src={datum.coverImage.src}
                   width={360}
@@ -48,7 +50,7 @@ export function ArticleList({
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col justify-between w-7/12 lg:w-full p-4 h-[240px] lg:h-[160px]">
+              <div className="flex flex-col justify-between w-full md:w-7/12 lg:w-full p-4 h-[200px] sm:h-[240px] lg:h-[160px]">
                 <div>
                   <h2 className="text-lg font-semibold text-gray-800 line-clamp-2">
                     {datum.title}

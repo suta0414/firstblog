@@ -1,3 +1,5 @@
+"use client";
+
 import { Author, ProfileData, Tags } from "@/_util/newt-client";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,14 +26,14 @@ export function SideBar() {
     fetchData();
   }, []);
   return (
-    <div className="w-full lg:w-1/4 bg-pink-100 bg-opacity-25 px-4">
+    <div className="w-full lg:w-1/4 bg-pink-100 bg-opacity-25 px-4 order-3 lg:order-2 mb-12">
       {profile && profile.image?.src ? (
         <div className="h-fit border-2 shadow-md rounded-lg overflow-hidden bg-white hover:shadow-lg transition-shadow text-center">
           <h2 className="text-2xl text-center font-bold text-white bg-blue-400 py-3">
             PROFILE
           </h2>
-          <div className="flex lg:block items-center">
-            <div className="lg:w-full w-1/4">
+          <div className="flex flex-col lg:flex-col sm:flex-row items-center mb-6 lg:mb-0">
+            <div className="w-full lg:w-full sm:w-1/3">
               <h3 className="text-lg font-bold text-center mt-2 mb-4">
                 {profile.name}
               </h3>
@@ -41,16 +43,16 @@ export function SideBar() {
                   width={340}
                   height={240}
                   alt={profile.image?.altText || "Profile image"}
-                  className="object-cover w-full h-full"
+                  className="object-cover w-auto h-auto"
                 />
               </div>
             </div>
             <div className="p-4 mx-auto">
               {profile?.profile ? parse(profile.profile) : ""}
             </div>
-            <div className="text-sm mb-4 text-blue-500 hover:text-blue-700 underline font-semibold">
-              <Link href="/profile">プロフィールページへ</Link>
-            </div>
+          </div>
+          <div className="text-sm mb-4 text-blue-500 hover:text-blue-700 underline font-semibold">
+            <Link href="/profile">プロフィールページへ</Link>
           </div>
         </div>
       ) : (
