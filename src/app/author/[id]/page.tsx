@@ -8,7 +8,7 @@ export default async function TagPage({
   params,
   searchParams,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
   searchParams: { [key: string]: string | undefined };
 }) {
   const { id } = await params;
