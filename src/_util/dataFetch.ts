@@ -1,3 +1,5 @@
+"use cache";
+
 import { Author, client, ProfileData, Tags } from "@/_util/newt-client";
 
 export async function fetchSideBarData() {

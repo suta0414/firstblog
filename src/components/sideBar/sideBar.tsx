@@ -1,6 +1,7 @@
 "use client";
 
 import { Author, ProfileData, Tags } from "@/_util/newt-client";
+
 import Image from "next/image";
 import Link from "next/link";
 import parse from "html-react-parser";
@@ -12,6 +13,7 @@ export function SideBar() {
 
   const [tags, setTags] = useState<Tags[]>();
   const [authors, setAuthors] = useState<Author[]>();
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -25,6 +27,7 @@ export function SideBar() {
     }
     fetchData();
   }, []);
+
   return (
     <div className="w-full lg:w-1/4 bg-pink-100 bg-opacity-25 px-4 order-3 lg:order-2 mb-12">
       {profile && profile.image?.src ? (
