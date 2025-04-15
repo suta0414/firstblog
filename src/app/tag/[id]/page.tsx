@@ -9,7 +9,7 @@ export default async function TagPage({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
   const { id } = await params;
   const data = await client.getContents<Post>({

@@ -7,7 +7,7 @@ export async function getCurrentPage({
   searchParams,
   data,
 }: {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
   data: { items: Post[] };
 }) {
   // ✅ ページ番号の取得
