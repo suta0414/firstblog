@@ -8,7 +8,7 @@ export default async function TagPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
   searchParams: { [key: string]: string | undefined };
 }) {
   const { id } = await params;
@@ -22,7 +22,7 @@ export default async function TagPage({
     },
   });
 
-  const currentItems = getCurrentPage({
+  const currentItems = await getCurrentPage({
     searchParams,
     data,
   });

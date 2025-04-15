@@ -22,7 +22,7 @@ export default async function TagPage({
     },
   });
 
-  const currentItems = getCurrentPage({
+  const currentItems = await getCurrentPage({
     searchParams,
     data,
   });
