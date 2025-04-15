@@ -7,7 +7,7 @@ import { getCurrentPage } from "@/_util/getCurrentPage";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | undefined };
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
   const data = await client.getContents<Post>({
     appUid: "blog",
