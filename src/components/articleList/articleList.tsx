@@ -20,9 +20,11 @@ export function ArticleList({
 
   return (
     <div className="w-full mx-auto lg:w-3/4 bg-yellow-100 bg-opacity-25 pt-4 pb-12 px-4">
-      <h2 className="text-2xl font-semibold mb-6 text-center">
-        {title ? title : "記事一覧"}
-      </h2>
+      <div className="mb-6 text-center">
+        <h2 className="text-2xl font-semibold pb-2 border-blue-400 border-b-4 inline-block">
+          {title ? title : "記事一覧"}
+        </h2>
+      </div>
       {/* ✅ 記事リスト */}
       <ul className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
         {data.map((datum) => (
