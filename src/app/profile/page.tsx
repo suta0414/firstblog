@@ -13,7 +13,7 @@ export default async function Profile() {
     <div className="max-w-[1300px] mx-auto mb-20">
       <div className="block lg:flex mt-16">
         <div className="text-center lg:w-3/4 mb-12">
-          <h1 className="inline-block text-3xl font-bold my-6 pb-2 border-b-4 border-blue-400">
+          <h1 className="inline-block text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-400">
             プロフィール
           </h1>
           <h2 className="text-2xl font-bold">{data.name}</h2>

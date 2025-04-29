@@ -64,12 +64,12 @@ export function SideBar() {
         </p>
       )}
 
-      <div className="text-center  h-fit border-2 mt-4 shadow-md rounded-lg overflow-hidden bg-white hover:shadow-lg transition-shadow">
+      <div className="text-center h-fit border-2 mt-4 shadow-md rounded-lg bg-white hover:shadow-lg transition-shadow">
         <h2 className="text-2xl font-bold text-white bg-blue-400 py-3">TAGS</h2>
-        <ul className="mt-2 mb-4 flex">
+        <ul className="mt-2 mb-4 flex flex-wrap">
           {tags ? (
             tags.map((tag) => (
-              <li key={tag._id} className="mt-2 ml-2 text-white">
+              <li key={tag._id} className="my-2 ml-2 text-white">
                 <Link
                   className="bg-slate-400 bg-opacity-75 p-1 rounded-md hover:bg-slate-600"
                   href={`/tag/${tag._id}`}
@@ -91,10 +91,10 @@ export function SideBar() {
         <h2 className="text-2xl font-bold text-white bg-blue-400 py-3">
           AUTHORS
         </h2>
-        <ul className="mt-2 mb-4 flex">
+        <ul className="mt-2 mb-4 flex flex-wrap">
           {authors ? (
             authors.map((author) => (
-              <li key={author._id} className="mt-2 ml-2 text-white">
+              <li key={author._id} className="my-2 ml-2 text-white">
                 <Link
                   className="bg-slate-400 bg-opacity-75 p-1 rounded-md hover:bg-slate-600"
                   href={`/author/${author._id}`}

@@ -1,7 +1,6 @@
 import { getCurrentPage } from "@/_util/getCurrentPage";
 import { client, Post } from "@/_util/newt-client";
 import { ArticleList } from "@/components/articleList/articleList";
-import { Pagination } from "@/components/pagination/pagination";
 import { SideBar } from "@/components/sideBar/sideBar";
 
 export default async function TagPage({
@@ -33,7 +32,6 @@ export default async function TagPage({
         <ArticleList data={currentItems} source="author" />
         <SideBar />
       </div>
-      <Pagination data={data} />
     </div>
   );
 }

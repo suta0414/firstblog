@@ -19,12 +19,14 @@ export default async function Page({
     data,
   });
 
+  const length = data.items.length;
+
   return (
     <div className="max-w-[1300px] mx-auto mb-20">
       <div className="flex flex-col lg:flex-row flex-wrap mt-16">
         <ArticleList data={currentItems} />
         <SideBar />
-        <Pagination data={data} />
+        <Pagination length={length} source="items" />
       </div>
     </div>
   );
